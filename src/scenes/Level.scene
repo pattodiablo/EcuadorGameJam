@@ -1,0 +1,32 @@
+{
+    "id": "01aefa93-6044-4159-8358-7e91310aa05f",
+    "sceneType": "SCENE",
+    "settings": {
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Level"
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "b2b3dbd5-2106-41fa-8a04-9b511e3401a9",
+            "label": "gameReady",
+            "scope": "CLASS",
+            "components": [],
+            "x": 400,
+            "y": 408,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "GAME IS READY",
+            "fontFamily": "Arial",
+            "fontSize": "30px"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor 2D - Scene Editor",
+        "url": "https://phasereditor2d.com",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
+    }
+}

@@ -1,0 +1,281 @@
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	
+	<title>My Game</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<script src="lib/jquery.js"></script>
+	<script src="lib/game.js"></script>
+	<script src="lib/phaser.min.js"></script>
+	<script src="https://unpkg.com/@croquet/croquet@1.0"></script>
+	<script src="src/components/UserComponent.js"></script>
+	<script src="src/components/PushOnClick.js"></script>
+	<script src="src/components/PreloadText.js"></script>
+	<script src="src/scenes/Preload.js"></script>
+	<script src="src/scenes/Level.js"></script>
+	<script src="src/main.js"></script>
+	
+
+<script type="text/javascript">
+var neededUsersPerGame = 2;
+var croquetView=null;
+	
+$(document).ready(function(){
+
+	
+	//initGame();
+	 $("#lobbyScreen").hide();
+	 $("#ingresarBtn3").hide();
+	 $("textarea#roomIDField").hide();
+	 $("#shareText").hide();
+	 $("#iniciarBtn").hide();
+
+
+	  $("textarea#roomIDField").click(function(){
+	  	copyToClipboard('hola');
+	  });
+
+	var generateRoom = function(){
+			console.log('este es el room id ' + roomID)
+			$("textarea#roomIDField").val(window.location.href + '?room='+ roomID);
+		}
+		
+	function copyToClipboard(element) {
+	 var copyText = document.getElementById("roomIDField");
+	 copyText.select();
+	 copyText.setSelectionRange(0, 99999); 
+	 
+	      document.execCommand("copy");
+	     
+	       	$("textarea#roomIDField").val('URL copied to clipboard');
+	}
+
+
+	
+
+	function getParameterByName(name, url = window.location.href) {
+		name = name.replace(/[\[\]]/g, '\\$&');
+		var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, ' '));
+	}
+	var roomID = getParameterByName('room'); // "lorem"
+	if(roomID=="" || roomID==null){
+
+	var createInRoom =  true;
+	
+		var ID = function () { //get a room ID
+		 
+		  return Math.random().toString(36).substr(2, 4);
+		};
+		var roomID = ID();
+		var o = { 'public': 'foo' };
+		o[roomID] = 'bar';
+		console.log("#RoomID " + roomID);
+		$("#textarea#roomNumber").val("hey ehey");
+	}else{ //si ya viene con roomNumber
+	 $("#ingresarBtn").hide();
+	 $("#ingresarBtn2").hide();
+	 $("#ingresarBtn3").show();
+	 $("#shareText").show();
+	  	// $("textarea#roomIDField").show();
+	 $("#ingresarBtn3").html('JUGAR CON AMIGOS');
+	  
+	var createInRoom =  false;
+	generateRoom();
+	}
+		
+
+		
+		var validate =  function(nickName,conexionType){
+			
+			var nicknameOk =  false;
+			if(nickName.length<=0){
+							$("textarea#roomIDField").show();
+							$("textarea#roomIDField").val('El apodo no es valido');
+						//alert(' please specify a valid nickname');
+
+				}else if(nickName.length>=12){
+					
+							$("textarea#roomIDField").show();
+							$("textarea#roomIDField").val('apodo demasiado largo');
+				
+				}else{
+					nicknameOk =  true;
+				}
+				var options={
+					nickName:nickName,
+					conexionType:conexionType,
+					roomID:roomID
+				}
+			
+				if(nicknameOk){
+					$("#loginScreen").hide();
+					$("#lobbyScreen").show();
+					loadGame(options);
+				}
+
+		}
+
+	    $("#ingresarBtn").click(function(){
+
+			var nickName = $("#nickName").val();
+
+			var conexionType = false;
+			
+			validate(nickName,conexionType);
+
+		});
+
+		$("#ingresarBtn3").click(function(){
+		
+		var nickName = $("#nickName").val();
+		var conexionType = true;
+		
+		validate(nickName,conexionType)
+		
+
+		});
+
+		$("#iniciarBtn").click(function(){
+		
+			$("#iniciarBtn").hide();
+			croquetView.sayReady();
+		});
+
+
+
+
+	});
+
+
+	function nombreEnLoby(usuarios){
+		console.log(usuarios.length);
+		const tablaUsuarios = document.getElementById("tablaUsuarios");
+	
+	
+		while(tablaUsuarios.firstChild) tablaUsuarios.removeChild(tablaUsuarios.firstChild);
+	
+		
+		for(var i=0;i<usuarios.length;i++)
+		{
+			var usuarioNuevo=document.createElement('li');
+			usuarioNuevo.appendChild(document.createTextNode(usuarios[i].nickName));
+			tablaUsuarios.appendChild(usuarioNuevo);
+		}
+
+		if(usuarios.length>neededUsersPerGame-1){
+			$("#iniciarBtn").show();
+		}else{
+			$("#iniciarBtn").hide();
+		}
+
+	}
+
+</script>
+
+</head>
+
+<body>
+
+	
+<div class="container-fluid" id="loginScreen">
+
+
+<div class="row">
+
+	<div class="col-2 "></div>
+	<div class="col-8">
+		<div class="input-group input-group-lg">
+	  <div class="input-group-prepend">
+	    <span class="input-group-text">Apodo</span>
+	  </div>
+	  <input id="nickName" type="text" class="form-control" placeholder="máximo 10 caracteres" aria-label="Username" aria-describedby="basic-addon1">
+	</div></div>
+	<div class="col-2"></div>
+
+	<div class="col-2 "></div>
+	<div class="col-8 align d-flex justify-content-center mt-3">
+	<button type="submit"  id="ingresarBtn" class="btn btn-danger btn-lg btn-block" style="background-color: #972265">INICIAR UN JUEGO</button>	
+
+	</div>
+	<div class="col-2"></div>
+
+	<div class="col-2 "></div>
+	<div class="col-8 align d-flex justify-content-center mt-3">
+	<button type="submit"  id="uniserBtn" class="btn btn-danger btn-lg btn-block" style="background-color: #972265">UNIRSE A JUEGO</button>	
+
+	</div>
+	<div class="col-2 "></div>
+
+	<div class="col-2 "></div>
+	<div class="col-8">
+		<div class="input-group input-group-lg">
+	  <div class="input-group-prepend">
+	    <span class="input-group-text">ROOM ID</span>
+	  </div>
+	  <input id="nickName" type="text" class="form-control" placeholder="EJ:2do9" aria-label="Username" aria-describedby="basic-addon1">
+	</div></div>
+	<div class="col-2 "></div>
+
+	<div class="col-2 "></div>
+	<div class="col-8  align d-flex justify-content-center mt-3">
+	
+	<textarea class="form-control text-center" id="roomIDField" rows="1"></textarea>
+	</div>
+	<div class="col-2 "></div>	
+
+</div>
+
+</div>
+
+
+<div class="container-fluid" id="lobbyScreen">
+
+
+		<div class="row">
+
+			<div class="col-2 col-lg-3"></div>
+			<div class="col-8 col-lg-6">
+				<div class="title">
+					Sala de espera
+				</div>
+
+				
+				<div class="col-2 "></div>
+				<div class="col-8  align d-flex justify-content-center mt-3">
+				
+				<textarea class="form-control text-center" id="roomNumber" rows="1"></textarea>
+				</div>
+				<div class="col-2 "></div>	
+
+				
+				<div id="usersInLobby">
+					<ul id="tablaUsuarios">
+						<li>conectando...</li>
+					</ul>
+				</div>
+			<div class="col-2 col-lg-3"></div>
+
+			<div class="col-2 col-lg-3"></div>
+			<div class="col-8 col-lg-6">
+				<button type="submit"  id="iniciarBtn" class="btn  btn-lg btn-block" style="background-color: #35c362">INICIAR JUEGO</button>	
+				
+			<div class="col-2 col-lg-3"></div>
+
+		</div>
+
+		</div>
+
+</div>
+
+</body>
+
+</html>
