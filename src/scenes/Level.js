@@ -22,9 +22,7 @@ class Level extends Phaser.Scene {
 		gameReady.text = "GAME IS READY";
 		gameReady.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
 
-		// player1
-		const player1 = new CroquetPlayer(this, 383, 476);
-		this.add.existing(player1);
+	
 
 		this.gameReady = gameReady;
 
@@ -44,6 +42,13 @@ class Level extends Phaser.Scene {
 
 		this.gameReady.x=this.cameras.main.centerX;
 
+		const i = 0;
+
+		this.game.allPlayers.forEach( player => {
+		var CroquetPlayer = new CroquetPlayer(this, 383+(10*i), 476);
+		this.add.existing(CroquetPlayer);
+		i++;
+		});
 		console.log(this.game.allPlayers);
 	}
 
