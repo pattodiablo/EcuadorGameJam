@@ -42,14 +42,16 @@ class Level extends Phaser.Scene {
 
 		this.gameReady.x=this.cameras.main.centerX;
 
-		const i = 0;
 
-		this.game.allPlayers.forEach( player => {
-		var CroquetPlayer = new CroquetPlayer(this, 383+(10*i), 476);
-		this.add.existing(CroquetPlayer);
-		i++;
-		});
-		console.log(this.game.allPlayers);
+		var CroquetPlayer1 = new CroquetPlayer(this, this.cameras.main.centerX-50, 476);
+		CroquetPlayer1.id=this.game.allPlayers[0].sessionId;
+		this.add.existing(CroquetPlayer1);
+
+		var CroquetPlayer2 = new CroquetPlayer(this,this.cameras.main.centerX+50, 476);
+		CroquetPlayer2.id=this.game.allPlayers[1].sessionId;
+		this.add.existing(CroquetPlayer2);
+
+		
 	}
 
 	/* END-USER-CODE */
