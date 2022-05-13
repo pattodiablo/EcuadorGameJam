@@ -22,6 +22,10 @@ class Level extends Phaser.Scene {
 		gameReady.text = "GAME IS READY";
 		gameReady.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
 
+		// player1
+		const player1 = new CroquetPlayer(this, 383, 476);
+		this.add.existing(player1);
+
 		this.gameReady = gameReady;
 
 		this.events.emit("scene-awake");

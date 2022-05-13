@@ -1,6 +1,24 @@
 {
     "section1": {
-        "files": []
+        "files": [
+            {
+                "url": [
+                    "src/prefabs/CroquetPlayer.js"
+                ],
+                "type": "scripts",
+                "key": "CroquetPlayer"
+            },
+            {
+                "url": "assets/player1.png",
+                "type": "image",
+                "key": "player1"
+            },
+            {
+                "url": "assets/player2.png",
+                "type": "image",
+                "key": "player2"
+            }
+        ]
     },
     "meta": {
         "app": "Phaser Editor 2D - Asset Pack Editor",
