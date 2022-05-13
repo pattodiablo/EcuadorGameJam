@@ -4,34 +4,29 @@
 /* START OF COMPILED CODE */
 
 class Level extends Phaser.Scene {
-
+	
 	constructor() {
 		super("Level");
-
+		
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
-
-	/** @returns {void} */
+	
 	editorCreate() {
-
+		
 		// gameReady
 		const gameReady = this.add.text(400, 408, "", {});
 		gameReady.setOrigin(0.5, 0.5);
 		gameReady.text = "GAME IS READY";
-		gameReady.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
-
-	
-
+		gameReady.setStyle({"fontFamily":"Arial","fontSize":"30px"});
+		
 		this.gameReady = gameReady;
-
-		this.events.emit("scene-awake");
 	}
-
+	
 	/** @type {Phaser.GameObjects.Text} */
 	gameReady;
-
+	
 	/* START-USER-CODE */
 
 	// Write more your code here
@@ -42,11 +37,11 @@ class Level extends Phaser.Scene {
 
 		this.gameReady.x=this.cameras.main.centerX;
 
-		const i = 0;
+		var i = 0;
 
 		this.game.allPlayers.forEach( player => {
-		var CroquetPlayer = new CroquetPlayer(this, 383+(10*i), 476);
-		this.add.existing(CroquetPlayer);
+		var PlayerPrefab = new CroquetPlayer(this, 383-(100*i), 476);
+		this.add.existing(PlayerPrefab);
 		i++;
 		});
 		console.log(this.game.allPlayers);
