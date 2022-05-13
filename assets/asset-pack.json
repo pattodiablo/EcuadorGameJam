@@ -9,6 +9,13 @@
                 "key": "CroquetPlayer"
             },
             {
+                "url": [
+                    "src/prefabs/LocalPlayer.js"
+                ],
+                "type": "scripts",
+                "key": "LocalPlayer"
+            },
+            {
                 "url": "assets/player1.png",
                 "type": "image",
                 "key": "player1"

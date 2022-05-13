@@ -32,6 +32,18 @@
             "components": [],
             "x": 383,
             "y": 476
+        },
+        {
+            "prefabId": "8d9c6705-30fa-4df9-9461-7567e7018be7",
+            "id": "1ac14f5b-b8bd-4847-8284-4e36732800ab",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "player2",
+            "components": [],
+            "x": 484,
+            "y": 476
         }
     ],
     "plainObjects": [],
