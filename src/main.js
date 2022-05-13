@@ -1,5 +1,5 @@
 
-function initGame(){
+function initGame(allPlayers){
 var game = new Phaser.Game({
 		width: document.body.clientWidth,
 		height:  document.body.clientHeight,
@@ -10,11 +10,11 @@ var game = new Phaser.Game({
 			autoCenter: Phaser.Scale.CENTER_BOTH
 		}
 	});
-	
+	game.allPlayers = allPlayers;
+
 	game.scene.add("Preload", Preload);
 	game.scene.add("Level", Level);
 	game.scene.add("Boot", Boot, true);
-
 
 }
 	

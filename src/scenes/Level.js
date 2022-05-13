@@ -39,6 +39,8 @@ class Level extends Phaser.Scene {
 		this.editorCreate();
 
 		this.gameReady.x=this.cameras.main.centerX;
+
+		console.log(this.game.allPlayers);
 	}
 
 	/* END-USER-CODE */
