@@ -4,6 +4,12 @@ var game = new Phaser.Game({
 		width: document.body.clientWidth,
 		height:  document.body.clientHeight,
 		type: Phaser.AUTO,
+		physics: {
+			default: "arcade",
+			arcade: {
+				debug: false				
+			}			
+		},
         backgroundColor: "#242424",
 		scale: {
 			mode: Phaser.Scale.FIT,

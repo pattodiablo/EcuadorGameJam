@@ -22,14 +22,6 @@ class Level extends Phaser.Scene {
 		gameReady.text = "GAME IS READY";
 		gameReady.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
 
-		// player1
-		const player1 = new CroquetPlayer(this, 383, 476);
-		this.add.existing(player1);
-
-		// player2
-		const player2 = new LocalPlayer(this, 484, 476);
-		this.add.existing(player2);
-
 		this.gameReady = gameReady;
 
 		this.events.emit("scene-awake");
@@ -50,11 +42,16 @@ class Level extends Phaser.Scene {
 
 
 		var CroquetPlayer1 = new CroquetPlayer(this, this.cameras.main.centerX-50, 476);
-		CroquetPlayer1.id=this.game.allPlayers[0].sessionId;
+		if(!isPhaserDebug){
+			CroquetPlayer1.id=this.game.allPlayers[0].sessionId;
+		}
 		this.add.existing(CroquetPlayer1);
 
 		var CroquetPlayer2 = new LocalPlayer(this,this.cameras.main.centerX+50, 476);
+		if(!isPhaserDebug){
 		CroquetPlayer2.id=this.game.allPlayers[1].sessionId;
+		}
+		//
 		this.add.existing(CroquetPlayer2);
 
 
