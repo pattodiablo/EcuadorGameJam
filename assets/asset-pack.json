@@ -16,6 +16,11 @@
                 "key": "LocalPlayer"
             },
             {
+                "url": "assets/player.png",
+                "type": "image",
+                "key": "player"
+            },
+            {
                 "url": "assets/player1.png",
                 "type": "image",
                 "key": "player1"
