@@ -27,16 +27,16 @@ class LocalPlayer extends Phaser.GameObjects.Sprite {
     }
     else if (this.cursors.right.isDown)
     {
-
+		this.body.velocity.x+=20;
     }
 
     if (this.cursors.up.isDown)
     {
-
+		this.body.velocity.y-=20;
     }
     else if (this.cursors.down.isDown)
     {
-
+		this.body.velocity.y+=20;
     }
 
 }
