@@ -38,6 +38,7 @@ class Level extends Phaser.Scene {
 
 		this.editorCreate();
 
+		this.cameras.main.setBounds(0, 0, 10000, 10000);
 		this.gameReady.x=this.cameras.main.centerX;
 
 
@@ -47,13 +48,14 @@ class Level extends Phaser.Scene {
 		}
 		this.add.existing(CroquetPlayer1);
 
-		var CroquetPlayer2 = new LocalPlayer(this,this.cameras.main.centerX+50, 476);
+		var LocalPlayerPrefab = new LocalPlayer(this,this.cameras.main.centerX+50, 476);
 		if(!isPhaserDebug){
-		CroquetPlayer2.id=this.game.allPlayers[1].sessionId;
+			LocalPlayerPrefab.id=this.game.allPlayers[1].sessionId;
 		}
 		//
-		this.add.existing(CroquetPlayer2);
+		this.add.existing(LocalPlayerPrefab);
 
+	
 
 	}
 
