@@ -34,6 +34,13 @@
                 "url": "assets/player2.png",
                 "type": "image",
                 "key": "player2"
+            },
+            {
+                "url": [
+                    "assets/audio/music/soundtrack01.mp3"
+                ],
+                "type": "audio",
+                "key": "soundtrack01"
             }
         ]
     },
