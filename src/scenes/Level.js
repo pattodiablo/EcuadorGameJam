@@ -37,8 +37,10 @@ class Level extends Phaser.Scene {
 	create() {
 
 		this.editorCreate();
+		this.physics.world.setBounds(0,0,3000,3000,true,true,true);
+		this.cameras.main.setBounds(0, 0, 3000, 3000,true);
 
-		this.cameras.main.setBounds(0, 0, 10000, 10000);
+
 		this.gameReady.x=this.cameras.main.centerX;
 
 
@@ -55,7 +57,7 @@ class Level extends Phaser.Scene {
 		//
 		this.add.existing(LocalPlayerPrefab);
 
-	
+		this.cameras.main.startFollow(LocalPlayerPrefab);
 
 	}
 

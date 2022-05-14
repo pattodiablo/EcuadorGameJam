@@ -17,7 +17,7 @@ class LocalPlayer extends Phaser.GameObjects.Sprite {
 	/* START-USER-CODE */
 	create(){
 		this.scene.physics.world.enableBody(this);
-	//	this.body.setCollideWorldBounds(true);
+		this.body.setCollideWorldBounds(true);
 		this.cursors = this.scene.input.keyboard.createCursorKeys();
 	}
 
