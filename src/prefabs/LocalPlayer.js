@@ -16,26 +16,27 @@ class LocalPlayer extends Phaser.GameObjects.Sprite {
 
 	/* START-USER-CODE */
 	create(){
+		this.scene.physics.world.enableBody(this);
 		this.cursors = this.scene.input.keyboard.createCursorKeys();
 	}
 
  update() {
 	if (this.cursors.left.isDown)
     {
-      
+		this.body.velocity.x-=20;
     }
     else if (this.cursors.right.isDown)
     {
-      
+		this.body.velocity.x+=20;
     }
 
     if (this.cursors.up.isDown)
     {
-       
+		this.body.velocity.y-=20;
     }
     else if (this.cursors.down.isDown)
     {
-      
+		this.body.velocity.y+=20;
     }
 
 }
