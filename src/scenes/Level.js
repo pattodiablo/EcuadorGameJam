@@ -66,7 +66,13 @@ class Level extends Phaser.Scene {
 		this.add.existing(LocalPlayerPrefab);
 
 		this.cameras.main.startFollow(LocalPlayerPrefab);
+		this.netData={
+			xpos:229,
+			ypos:229
+		};
 
+	
+		this.game.croquetView.updatePos(this.netData);
 	}
 
 	/* END-USER-CODE */
