@@ -40,8 +40,12 @@ class LocalPlayer extends Phaser.GameObjects.Sprite {
 		this.body.velocity.y+=20;
     }
 
+	sendPositiontoCroquet()
 }
 
+sendPositiontoCroquet(){
+	croquetView.updatePosition(this.x,this.y);
+}
 	/* END-USER-CODE */
 }
 
