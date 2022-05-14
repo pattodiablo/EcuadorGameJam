@@ -17,7 +17,7 @@ var game = new Phaser.Game({
 		}
 	});
 	game.allPlayers = allPlayers;
-
+	game.croquetView = croquetView;
 	game.scene.add("Preload", Preload);
 	game.scene.add("Level", Level);
 	game.scene.add("Boot", Boot, true);

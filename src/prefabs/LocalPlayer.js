@@ -19,6 +19,7 @@ class LocalPlayer extends Phaser.GameObjects.Sprite {
 		this.scene.physics.world.enableBody(this);
 		this.body.setCollideWorldBounds(true);
 		this.cursors = this.scene.input.keyboard.createCursorKeys();
+	//	var background = this.scene.add.tileSprite(0, 0, 500, 500, "background");
 	}
 
  update() {
@@ -40,8 +41,14 @@ class LocalPlayer extends Phaser.GameObjects.Sprite {
 		this.body.velocity.y+=20;
     }
 
+	this.sendPositiontoCroquet();
 }
 
+sendPositiontoCroquet(){
+
+console.log(this.scene.game.croquetView);
+
+}
 	/* END-USER-CODE */
 }
 

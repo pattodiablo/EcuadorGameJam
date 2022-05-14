@@ -2,6 +2,11 @@
     "section1": {
         "files": [
             {
+                "url": "assets/background.png",
+                "type": "image",
+                "key": "background"
+            },
+            {
                 "url": [
                     "src/prefabs/CroquetPlayer.js"
                 ],
