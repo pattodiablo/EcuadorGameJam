@@ -8,9 +8,6 @@ class LocalPlayer extends Phaser.GameObjects.Sprite {
 	constructor(scene, x, y, texture, frame) {
 		super(scene, x ?? 0, y ?? 0, texture || "player2", frame);
 
-		// this (components)
-		new Physics(this);
-
 		/* START-USER-CTR-CODE */
 		this.scene.events.on("create", () => this.create());
 		this.updateEvent = this.scene.events.on("update", () => this.update());

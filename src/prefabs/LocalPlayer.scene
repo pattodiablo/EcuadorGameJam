@@ -11,9 +11,7 @@
             "type": "Sprite",
             "id": "8fa9a80e-65f4-478c-a5c3-e238a6e1c4dd",
             "label": "player2",
-            "components": [
-                "Physics"
-            ],
+            "components": [],
             "texture": {
                 "key": "player2"
             }
