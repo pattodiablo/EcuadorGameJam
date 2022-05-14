@@ -15,15 +15,42 @@
             "components": [],
             "x": 400,
             "y": 408,
+            "originX": 0.5,
+            "originY": 0.5,
             "text": "GAME IS READY",
             "fontFamily": "Arial",
             "fontSize": "30px"
+        },
+        {
+            "prefabId": "ff79f60d-58b8-4de3-8da0-2b756abefb80",
+            "id": "4f2a8267-2d34-4690-8364-611f4311b19d",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "player1",
+            "components": [],
+            "x": 383,
+            "y": 476
+        },
+        {
+            "prefabId": "8d9c6705-30fa-4df9-9461-7567e7018be7",
+            "id": "1ac14f5b-b8bd-4847-8284-4e36732800ab",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "player2",
+            "components": [],
+            "x": 484,
+            "y": 476
         }
     ],
     "plainObjects": [],
     "meta": {
         "app": "Phaser Editor 2D - Scene Editor",
         "url": "https://phasereditor2d.com",
-        "contentType": "phasereditor2d.core.scene.SceneContentType"
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 3
     }
 }

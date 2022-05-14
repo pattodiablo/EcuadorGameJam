@@ -143,7 +143,9 @@ $(document).ready(function(){
 		});
 
 		$("#uniserBtn").click(function(){
-		
+			let NewRoomId = $("#NewRoomId").val();
+			console.log(NewRoomId);
+			roomID=NewRoomId;
 		var nickName = $("#nickName").val();
 		var conexionType = true;
 		
@@ -229,7 +231,7 @@ $(document).ready(function(){
 	  <div class="input-group-prepend">
 	    <span class="input-group-text">ROOM ID</span>
 	  </div>
-	  <input id="nickName" type="text" class="form-control" placeholder="EJ:2do9" aria-label="Username" aria-describedby="basic-addon1">
+	  <input id="NewRoomId" type="text" class="form-control" placeholder="EJ:2do9" aria-label="Username" aria-describedby="basic-addon1">
 	</div></div>
 	<div class="col-2 "></div>
 
