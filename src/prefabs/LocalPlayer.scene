@@ -13,7 +13,7 @@
             "label": "player2",
             "components": [],
             "texture": {
-                "key": "player2"
+                "key": "player"
             }
         }
     ],

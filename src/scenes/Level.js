@@ -22,13 +22,20 @@ class Level extends Phaser.Scene {
 		gameReady.text = "GAME IS READY";
 		gameReady.setStyle({ "fontFamily": "Arial", "fontSize": "30px" });
 
+		// background
+		const background = this.add.tileSprite(0, 0, 64, 64, "background");
+		background.setOrigin(0, 0);
+
 		this.gameReady = gameReady;
+		this.background = background;
 
 		this.events.emit("scene-awake");
 	}
 
 	/** @type {Phaser.GameObjects.Text} */
 	gameReady;
+	/** @type {Phaser.GameObjects.TileSprite} */
+	background;
 
 	/* START-USER-CODE */
 
@@ -36,11 +43,12 @@ class Level extends Phaser.Scene {
 
 	create() {
 
+		
 		this.editorCreate();
 		this.physics.world.setBounds(0,0,3000,3000,true,true,true);
 		this.cameras.main.setBounds(0, 0, 3000, 3000,true);
-
-
+		this.background.width=3000;
+		this.background.height=3000;
 		this.gameReady.x=this.cameras.main.centerX;
 
 

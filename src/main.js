@@ -17,6 +17,7 @@ var game = new Phaser.Game({
 		}
 	});
 	game.allPlayers = allPlayers;
+	console.log("esta croquet " + croquetView);
 	game.croquetView = croquetView;
 	game.scene.add("Preload", Preload);
 	game.scene.add("Level", Level);

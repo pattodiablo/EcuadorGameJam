@@ -20,6 +20,20 @@
             "text": "GAME IS READY",
             "fontFamily": "Arial",
             "fontSize": "30px"
+        },
+        {
+            "type": "TileSprite",
+            "id": "76990757-32a9-4f87-aaf0-b17aa405e46c",
+            "label": "background",
+            "scope": "CLASS",
+            "components": [],
+            "texture": {
+                "key": "background"
+            },
+            "originX": 0,
+            "originY": 0,
+            "width": 64,
+            "height": 64
         }
     ],
     "plainObjects": [],
